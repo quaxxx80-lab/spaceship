@@ -65,7 +65,7 @@ html {
     font-size: clamp(0.8rem, 2vw, 1.2rem);
     line-height: 1.6;
     text-align: center;
-    max-width: 80%;
+    max-width: min(80%, 900px);
     z-index: 5;
     backdrop-filter: blur(5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
@@ -84,8 +84,7 @@ html {
     bottom: 8%;
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
-    /* Wider on small screens */
+    width: min(90%, 700px);
     max-width: 700px;
     background: rgba(15, 20, 30, 0.9);
     border: 1px solid rgba(100, 150, 255, 0.3);
@@ -114,6 +113,111 @@ html {
     margin: 0 0 clamp(10px, 2vh, 20px) 0;
     letter-spacing: 0.5px;
     font-weight: 400;
+}
+
+@media (max-width: 900px), (max-height: 700px) {
+    #info-box {
+        top: 2.5%;
+        max-width: min(72%, 600px);
+        padding: clamp(7px, 1.4vh, 11px) clamp(10px, 2.4vw, 18px);
+        font-size: clamp(0.72rem, 1.7vw, 0.96rem);
+        line-height: 1.4;
+    }
+
+    #dialog-box {
+        bottom: 2.5%;
+        width: min(72%, 520px);
+        padding: clamp(8px, 1.8vh, 14px) clamp(10px, 2vw, 18px);
+    }
+
+    #dialog-text {
+        font-size: clamp(0.78rem, 1.8vw, 1rem);
+        margin-bottom: clamp(8px, 1.2vh, 12px);
+        line-height: 1.35;
+    }
+
+    #dialog-close {
+        font-size: clamp(0.72rem, 1.3vw, 0.9rem);
+        letter-spacing: 0.6px;
+        padding: clamp(5px, 0.8vh, 7px) clamp(10px, 1.6vw, 14px);
+    }
+
+    #minigame-overlay {
+        width: min(68%, 560px);
+        height: min(60%, 430px);
+        padding: 20px;
+    }
+
+    #transition-text {
+        font-size: clamp(1rem, 2.5vw, 1.4rem);
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 700px), (max-height: 540px) {
+    #info-box {
+        left: auto;
+        right: 2%;
+        transform: none;
+        max-width: 52%;
+        font-size: clamp(0.65rem, 1.55vw, 0.82rem);
+    }
+
+    #dialog-box {
+        left: auto;
+        right: 2%;
+        transform: none;
+        width: min(55%, 360px);
+        max-width: 55%;
+        border-radius: 10px;
+    }
+
+    #dialog-box.hidden {
+        transform: translateY(16px);
+    }
+
+    #dialog-text {
+        font-size: clamp(0.65rem, 1.45vw, 0.82rem);
+        letter-spacing: 0.2px;
+    }
+
+    #dialog-close {
+        font-size: 0.65rem;
+    }
+
+    #minigame-overlay {
+        width: min(86%, 560px);
+        height: min(70%, 420px);
+        padding: 14px;
+    }
+
+    #quest-title {
+        font-size: clamp(1rem, 3vw, 1.3rem);
+        margin-bottom: 12px;
+    }
+
+    #math-problem {
+        font-size: clamp(1.5rem, 6vw, 2.2rem);
+        margin-bottom: 14px;
+        letter-spacing: 2px;
+    }
+
+    #math-answer {
+        width: min(70%, 200px);
+        font-size: clamp(1rem, 3.2vw, 1.3rem);
+        padding: 8px 10px;
+    }
+
+    #quest-status {
+        font-size: clamp(0.8rem, 2.3vw, 1rem);
+        margin-top: 12px;
+    }
+
+    #transition-text {
+        max-width: 90%;
+        font-size: clamp(0.85rem, 2.8vw, 1rem);
+        line-height: 1.35;
+    }
 }
 
 #dialog-close {
