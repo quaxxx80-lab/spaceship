@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Point and Click Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="game-container">
+        <!-- The background image provided by the user -->
+        <img src="background1.jpg" id="background-image" alt="Jungle Crash Scene">
+
+        <!-- Clickable area for the spaceship -->
+        <div id="spaceship-hitbox" class="hitbox" title="Space Ship"></div>
+
+        <!-- Dialog box -->
+        <div id="dialog-box" class="hidden">
+            <p id="dialog-text"></p>
+            <button id="dialog-close">Weiter</button>
+        </div>
+
+        <!-- Minigame Overlay -->
+        <div id="minigame-overlay" class="hidden">
+            <canvas id="wave-canvas"></canvas>
+            <div class="timer-container">
+                <div id="time-bar"></div>
+            </div>
+            <div id="quest-area">
+                <h2 id="quest-title">Kalibrierungsprotokoll</h2>
+                <div id="math-problem"></div>
+                <input type="number" id="math-answer" placeholder="Eingabe hier..." autocomplete="off">
+                <p id="quest-status">5 Kalibrierungen abschließen</p>
+            </div>
+        </div>
+
+        <!-- Info box shown during the first background -->
+        <div id="info-box">
+            <p>Du erkennst in der Ferne ein Objekt das zwischen der dichten Vegetation des Dschungels kaum zu erkennen
+                ist. Es sieht fast wie ein abgestürztes Raumschiff aus...</p>
+        </div>
+
+        <!-- Hyperspace flash transition overlay -->
+        <div id="transition-overlay" class="hidden">
+            <p id="transition-text">Du kämpfst dich 2 weitere Stunden durch den Dschungel und erreichst das Schiff...
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
