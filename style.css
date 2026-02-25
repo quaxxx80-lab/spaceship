@@ -4,7 +4,7 @@ html {
     padding: 0;
     width: 100%;
     height: 100%;
-    background-color: #111;
+    background-color: #090b13;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,8 +16,8 @@ html {
     max-width: 100vw;
     max-height: 100vh;
     overflow: hidden;
-    /* Adding a subtle border for a cinematic feel */
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 170, 120, 0.25);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), 0 0 24px rgba(248, 140, 73, 0.15);
 }
 
 #background-image {
@@ -57,18 +57,18 @@ html {
     top: 5%;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(15, 20, 30, 0.85);
-    border: 1px solid rgba(100, 150, 255, 0.3);
-    border-radius: 8px;
+    background: linear-gradient(120deg, rgba(45, 41, 74, 0.92), rgba(20, 36, 54, 0.94));
+    border: 1px solid rgba(247, 158, 95, 0.4);
+    border-radius: 12px;
     padding: clamp(8px, 2vh, 15px) clamp(10px, 3vw, 30px);
-    color: #e0e6ed;
+    color: #f4ebde;
     font-size: clamp(0.8rem, 2vw, 1.2rem);
     line-height: 1.6;
     text-align: center;
     max-width: min(80%, 900px);
     z-index: 5;
     backdrop-filter: blur(5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45), inset 0 0 24px rgba(248, 173, 120, 0.08);
     transition: opacity 0.5s ease;
     pointer-events: none;
     /* Clicks will visually and physically pass through this element */
@@ -86,12 +86,12 @@ html {
     transform: translateX(-50%);
     width: min(90%, 700px);
     max-width: 700px;
-    background: rgba(15, 20, 30, 0.9);
-    border: 1px solid rgba(100, 150, 255, 0.3);
+    background: linear-gradient(120deg, rgba(36, 27, 58, 0.96), rgba(18, 29, 47, 0.95));
+    border: 1px solid rgba(247, 158, 95, 0.5);
     border-radius: 12px;
     padding: clamp(10px, 3vh, 24px) clamp(15px, 4vw, 32px);
-    color: #e0e6ed;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    color: #f9f6f0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(247, 158, 95, 0.2) inset;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -221,9 +221,9 @@ html {
 }
 
 #dialog-close {
-    background: #2a3b5c;
+    background: linear-gradient(120deg, #f18844, #ca5e36);
     color: white;
-    border: 1px solid #3c527f;
+    border: 1px solid #ffc19a;
     padding: clamp(6px, 1.5vh, 10px) clamp(12px, 3vw, 24px);
     border-radius: 6px;
     cursor: pointer;
@@ -232,12 +232,13 @@ html {
     transition: all 0.2s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-family: 'Orbitron', sans-serif;
 }
 
 #dialog-close:hover {
-    background: #364a75;
-    border-color: #516a9c;
-    box-shadow: 0 0 15px rgba(100, 150, 255, 0.3);
+    background: linear-gradient(120deg, #ff9e58, #da6f47);
+    border-color: #ffe0cc;
+    box-shadow: 0 0 18px rgba(255, 153, 88, 0.45);
 }
 
 #dialog-close:active {
@@ -252,10 +253,11 @@ html {
     transform: translate(-50%, -50%);
     width: 50%;
     height: 50%;
-    background: rgba(10, 25, 40, 0.8);
-    border: 2px solid #4a90e2;
+    background: radial-gradient(circle at 20% 20%, rgba(255, 157, 98, 0.12), rgba(13, 19, 33, 0.95) 48%),
+        linear-gradient(140deg, rgba(37, 23, 58, 0.9), rgba(12, 24, 39, 0.95));
+    border: 2px solid rgba(255, 170, 120, 0.8);
     border-radius: 16px;
-    box-shadow: 0 0 50px rgba(0, 150, 255, 0.2), inset 0 0 20px rgba(0, 50, 100, 0.8);
+    box-shadow: 0 0 40px rgba(245, 145, 95, 0.24), inset 0 0 28px rgba(255, 145, 83, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -265,6 +267,52 @@ html {
     color: #fff;
     backdrop-filter: blur(10px);
     transition: opacity 0.3s ease;
+}
+
+#minigame-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 9px;
+    border: 1px solid rgba(255, 210, 166, 0.22);
+    border-radius: 12px;
+    pointer-events: none;
+}
+
+.lcars-top-bar,
+.lcars-bottom-bar {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    z-index: 1;
+}
+
+.lcars-top-bar {
+    justify-content: flex-start;
+    margin-bottom: 14px;
+}
+
+.lcars-bottom-bar {
+    justify-content: flex-end;
+    margin-top: 16px;
+}
+
+.lcars-pill,
+.lcars-tag {
+    border-radius: 999px;
+    padding: 5px 12px;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: clamp(0.58rem, 1vw, 0.78rem);
+    color: #1b1320;
+    background: linear-gradient(120deg, #f5be78, #f18944);
+    box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.lcars-tag {
+    color: #0e1725;
+    background: linear-gradient(120deg, #9dd4ff, #6fa8e0);
 }
 
 #minigame-overlay.hidden {
@@ -288,7 +336,8 @@ html {
 .timer-container {
     width: 80%;
     height: 12px;
-    background: #222;
+    background: rgba(7, 16, 30, 0.8);
+    border: 1px solid rgba(255, 180, 122, 0.35);
     border-radius: 6px;
     overflow: hidden;
     margin-bottom: 30px;
@@ -300,7 +349,7 @@ html {
 #time-bar {
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, #ff4e50, #f9d423);
+    background: linear-gradient(90deg, #56b4ff, #f9d06a);
     border-radius: 6px;
     transition: width 1s linear, background 1s ease;
 }
@@ -318,9 +367,10 @@ html {
 #quest-title {
     margin: 0 0 20px 0;
     font-size: 1.8rem;
-    color: #a0c4ff;
+    color: #f7c17f;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 2.2px;
+    font-family: 'Orbitron', sans-serif;
 }
 
 #math-problem {
@@ -328,7 +378,9 @@ html {
     font-weight: bold;
     margin-bottom: 25px;
     letter-spacing: 4px;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 16px rgba(112, 183, 255, 0.38);
+    color: #d5ebff;
+    font-family: 'Orbitron', sans-serif;
 }
 
 #math-answer {
@@ -336,9 +388,9 @@ html {
     padding: 12px 20px;
     width: 250px;
     text-align: center;
-    border: 2px solid #555;
-    background: #111;
-    color: #fff;
+    border: 2px solid rgba(133, 202, 255, 0.6);
+    background: rgba(4, 10, 18, 0.88);
+    color: #e8f5ff;
     border-radius: 8px;
     outline: none;
     transition: border-color 0.2s;
@@ -346,8 +398,8 @@ html {
 }
 
 #math-answer:focus {
-    border-color: #4a90e2;
-    box-shadow: 0 0 15px rgba(74, 144, 226, 0.4);
+    border-color: #f7b57a;
+    box-shadow: 0 0 20px rgba(247, 181, 122, 0.45);
 }
 
 #math-answer::-webkit-outer-spin-button,
@@ -364,16 +416,16 @@ html {
 #quest-status {
     margin-top: 20px;
     font-size: 1.2rem;
-    color: #cbd5e1;
+    color: #c9dbef;
     transition: color 0.3s ease;
 }
 
 .success-text {
-    color: #4ade80 !important;
+    color: #79f6ad !important;
 }
 
 .fail-text {
-    color: #f87171 !important;
+    color: #ff8f8f !important;
 }
 
 /* Flash Transition */

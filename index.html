@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Point and Click Adventure</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
@@ -25,15 +26,25 @@
 
         <!-- Minigame Overlay -->
         <div id="minigame-overlay" class="hidden">
+            <div class="lcars-top-bar" aria-hidden="true">
+                <span class="lcars-pill">LCARS</span>
+                <span class="lcars-pill">U.S.S. ARCHER</span>
+                <span id="stardate-display" class="lcars-pill">STARDATE 4828.9</span>
+            </div>
             <canvas id="wave-canvas"></canvas>
             <div class="timer-container">
                 <div id="time-bar"></div>
             </div>
             <div id="quest-area">
-                <h2 id="quest-title">Kalibrierungsprotokoll</h2>
+                <h2 id="quest-title">Sensor-Kalibrierungsprotokoll</h2>
                 <div id="math-problem"></div>
                 <input type="number" id="math-answer" placeholder="Eingabe hier..." autocomplete="off">
                 <p id="quest-status">5 Kalibrierungen abschließen</p>
+            </div>
+            <div class="lcars-bottom-bar" aria-hidden="true">
+                <span class="lcars-tag">DEFLECTOR ARRAY</span>
+                <span class="lcars-tag">EPS GRID</span>
+                <span id="time-remaining-label" class="lcars-tag">T-60s</span>
             </div>
         </div>
 

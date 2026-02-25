@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const mathProblemText = document.getElementById('math-problem');
     const mathAnswerInput = document.getElementById('math-answer');
     const questStatus = document.getElementById('quest-status');
+    const stardateDisplay = document.getElementById('stardate-display');
+    const timeRemainingLabel = document.getElementById('time-remaining-label');
     const backgroundImage = document.getElementById('background-image');
     const infoBox = document.getElementById('info-box');
     const transitionOverlay = document.getElementById('transition-overlay');
@@ -78,11 +80,15 @@ document.addEventListener('DOMContentLoaded', () => {
         questionsSolved = 0;
         timeRemaining = 60;
         timeBar.style.width = '100%';
-        timeBar.style.background = 'linear-gradient(90deg, #ff4e50, #f9d423)';
+        timeBar.style.background = 'linear-gradient(90deg, #56b4ff, #f9d06a)';
         mathAnswerInput.value = '';
         mathAnswerInput.disabled = false;
         questStatus.textContent = `Abgeschlossen: ${questionsSolved} / ${requiredQuestions}`;
         questStatus.className = '';
+        timeRemainingLabel.textContent = `T-${timeRemaining}s`;
+
+        const generatedStardate = (4828.9 + Math.random() * 60).toFixed(1);
+        stardateDisplay.textContent = `STARDATE ${generatedStardate}`;
 
         generateQuestion();
 
@@ -107,9 +113,10 @@ document.addEventListener('DOMContentLoaded', () => {
         timeRemaining--;
         const percentage = (timeRemaining / 60) * 100;
         timeBar.style.width = `${percentage}%`;
+        timeRemainingLabel.textContent = `T-${Math.max(timeRemaining, 0)}s`;
 
         if (timeRemaining <= 15) {
-            timeBar.style.background = '#ff4e50';
+            timeBar.style.background = '#ff8a5f';
         }
 
         if (timeRemaining <= 0) {
@@ -132,8 +139,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const syncLevel = questionsSolved / requiredQuestions;
 
         const isCompleted = syncLevel >= 1;
-        const targetColor = isCompleted ? '#4ade80' : 'rgba(74, 144, 226, 0.7)'; // Cyan/Blueish target
-        const currentColor = isCompleted ? '#4ade80' : 'rgba(255, 78, 80, 0.7)'; // Reddish current state
+        const targetColor = isCompleted ? '#79f6ad' : 'rgba(109, 191, 255, 0.75)';
+        const currentColor = isCompleted ? '#79f6ad' : 'rgba(255, 150, 95, 0.75)';
 
         // As sync level increases, the phase offset between the two waves shrinks to 0.
         // E.g. 0 solved -> pi offset. 5 solved -> 0 offset.
