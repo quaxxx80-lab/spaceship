@@ -142,18 +142,24 @@ html {
 
 /* Minigame Overlay */
 #minigame-overlay {
-    --lcars-gold: #f3b42f;
-    --lcars-sand: #e3bb75;
-    --lcars-orange: #f39e2f;
-    --lcars-lilac: #9a8be8;
-    --lcars-blue: #2f9cf6;
-    --lcars-light: #b8c5d6;
     position: absolute;
-    inset: 6% 6%;
-    background: #000;
-    border-radius: 38px;
-    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    background: rgba(10, 25, 40, 0.8);
+    border: 2px solid #4a90e2;
+    border-radius: 16px;
+    box-shadow: 0 0 50px rgba(0, 150, 255, 0.2), inset 0 0 20px rgba(0, 50, 100, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
     z-index: 20;
+    color: #fff;
+    backdrop-filter: blur(10px);
     transition: opacity 0.3s ease;
 }
 
@@ -164,194 +170,80 @@ html {
 
 #wave-canvas {
     position: absolute;
-    top: 62%;
-    left: 14px;
-    width: 260px;
-    bottom: 62px;
-    height: auto;
-    border-radius: 0 18px 18px 18px;
-    border: 2px solid var(--lcars-blue);
-    background: rgba(6, 12, 30, 0.35);
-    opacity: 0.65;
-    pointer-events: none;
-    z-index: 2;
-}
-
-.lcars-chrome {
-    position: absolute;
-    left: 0;
-    width: 73%;
-    height: 46px;
-    background: linear-gradient(90deg, #7d8893 0%, #d8e0e6 45%, #afb9c2 75%, #e6edf3 100%);
-    z-index: 1;
-}
-
-.lcars-chrome-top {
     top: 0;
-    border-radius: 34px 0 24px 0;
-}
-
-.lcars-chrome-bottom {
-    bottom: 0;
-    border-radius: 0 24px 0 34px;
-}
-
-.lcars-headline {
-    position: absolute;
-    top: 12px;
-    right: 24px;
-    font-family: 'Antonio', 'Inter', sans-serif;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    letter-spacing: 2px;
-    color: #2f8fe0;
-    z-index: 3;
-}
-
-.lcars-telemetry {
-    position: absolute;
-    top: 92px;
-    left: 14px;
-    bottom: 40%;
-    width: 260px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    z-index: 2;
-}
-
-.telemetry-row {
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    gap: 8px;
-    align-items: center;
-}
-
-.telemetry-value {
-    font-family: 'Antonio', 'Inter', sans-serif;
-    color: #96a3b2;
-    font-size: clamp(1.2rem, 2vw, 2rem);
-    text-align: right;
-    line-height: 1;
-}
-
-.telemetry-bar {
-    height: 28px;
-    border-radius: 0 14px 14px 0;
-    background: var(--lcars-light);
-}
-
-.telemetry-bar.blue { background: var(--lcars-blue); }
-.telemetry-bar.orange { background: var(--lcars-orange); }
-.telemetry-bar.light { background: var(--lcars-light); }
-
-.lcars-content {
-    position: absolute;
-    top: 88px;
-    left: 292px;
-    right: 20px;
-    bottom: 62px;
-    z-index: 3;
-    background: #000;
-    border-radius: 18px;
-    border-left: 10px solid var(--lcars-sand);
-    border-bottom: 12px solid var(--lcars-lilac);
-    padding: 14px;
-    display: grid;
-    grid-template-rows: auto auto auto 1fr auto;
-    gap: 10px;
-}
-
-.lcars-top-accent {
-    display: flex;
-    gap: 8px;
-}
-
-.accent-block {
-    display: block;
-    height: 74px;
-    border-radius: 0 0 0 22px;
-}
-
-.accent-block.gold { width: 96px; background: var(--lcars-gold); }
-.accent-block.sand { width: 130px; background: var(--lcars-sand); }
-.accent-block.lilac { flex: 1; background: var(--lcars-lilac); }
-
-.lcars-header-text,
-.lcars-footer-text {
-    font-family: 'Antonio', 'Inter', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: clamp(0.76rem, 1.3vw, 0.95rem);
-    color: #a6d7ff;
-}
-
-.lcars-footer-text {
-    color: #c5b7ff;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-radius: 14px;
+    /* Slightly less than minigame-overlay to fit inside border */
+    z-index: 0;
+    opacity: 0.8;
 }
 
 .timer-container {
-    height: 18px;
-    background: #070707;
-    border-radius: 999px;
-    border: 2px solid var(--lcars-sand);
+    width: 80%;
+    height: 12px;
+    background: #222;
+    border-radius: 6px;
     overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    /* keep above canvas */
 }
 
 #time-bar {
     width: 100%;
     height: 100%;
-    background: var(--lcars-orange);
-    border-radius: 999px;
-    transition: width 1s linear, background 0.6s ease;
+    background: linear-gradient(90deg, #ff4e50, #f9d423);
+    border-radius: 6px;
+    transition: width 1s linear, background 1s ease;
 }
 
 #quest-area {
-    border: 2px solid var(--lcars-lilac);
-    border-radius: 18px;
-    background: rgba(6, 11, 32, 0.28);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
-    padding: 18px 14px;
+    width: 100%;
+    z-index: 1;
+    /* keep above canvas */
 }
 
 #quest-title {
-    margin: 0 0 12px;
-    font-family: 'Antonio', 'Inter', sans-serif;
-    font-size: clamp(1.2rem, 2.2vw, 1.8rem);
-    letter-spacing: 2px;
-    color: #f7cb86;
+    margin: 0 0 20px 0;
+    font-size: 1.8rem;
+    color: #a0c4ff;
     text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 #math-problem {
-    font-family: 'Antonio', 'Inter', sans-serif;
-    font-size: clamp(2.3rem, 6.5vw, 4.1rem);
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 25px;
     letter-spacing: 4px;
-    line-height: 1;
-    margin-bottom: 12px;
-    color: #f2e8d8;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 #math-answer {
-    width: min(330px, 92%);
-    padding: 10px 14px;
-    border-radius: 0 16px 16px 0;
-    border: 3px solid var(--lcars-sand);
-    border-left-color: var(--lcars-blue);
-    background: #030303;
-    color: #f4ede2;
-    font-family: 'Antonio', 'Inter', sans-serif;
-    font-size: clamp(1.2rem, 2.7vw, 1.8rem);
-    letter-spacing: 2px;
+    font-size: 1.8rem;
+    padding: 12px 20px;
+    width: 250px;
     text-align: center;
+    border: 2px solid #555;
+    background: #111;
+    color: #fff;
+    border-radius: 8px;
     outline: none;
+    transition: border-color 0.2s;
+    font-family: inherit;
 }
 
 #math-answer:focus {
-    border-color: var(--lcars-lilac);
+    border-color: #4a90e2;
+    box-shadow: 0 0 15px rgba(74, 144, 226, 0.4);
 }
 
 #math-answer::-webkit-outer-spin-button,
@@ -366,75 +258,10 @@ html {
 }
 
 #quest-status {
-    margin: 14px 0 0;
-    color: #a5ceff;
-    font-family: 'Antonio', 'Inter', sans-serif;
-    font-size: clamp(0.9rem, 1.8vw, 1.08rem);
-    letter-spacing: 1.3px;
-    text-transform: uppercase;
-}
-
-@media (max-width: 980px) {
-    #minigame-overlay {
-        inset: 4%;
-    }
-
-    .lcars-telemetry {
-        width: 200px;
-        gap: 10px;
-    }
-
-    .telemetry-row {
-        grid-template-columns: 80px 1fr;
-    }
-
-    .telemetry-value {
-        font-size: clamp(1rem, 1.7vw, 1.5rem);
-    }
-
-    .telemetry-bar {
-        height: 22px;
-    }
-
-    #wave-canvas {
-        left: 14px;
-        width: 200px;
-    }
-
-    .lcars-content {
-        left: 230px;
-    }
-
-    .accent-block {
-        height: 58px;
-    }
-}
-
-@media (max-width: 760px) {
-    .lcars-telemetry {
-        display: none;
-    }
-
-    #wave-canvas {
-        left: 16px;
-        top: 66%;
-        width: calc(100% - 32px);
-        bottom: 70px;
-    }
-
-    .lcars-content {
-        left: 16px;
-        top: 82px;
-    }
-
-    .lcars-chrome,
-    .lcars-chrome-bottom {
-        width: 100%;
-    }
-
-    .lcars-headline {
-        font-size: clamp(1.4rem, 7vw, 2.2rem);
-    }
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    transition: color 0.3s ease;
 }
 
 .success-text {

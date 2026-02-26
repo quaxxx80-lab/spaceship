@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Point and Click Adventure</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -26,36 +26,14 @@
         <!-- Minigame Overlay -->
         <div id="minigame-overlay" class="hidden">
             <canvas id="wave-canvas"></canvas>
-            <div class="lcars-chrome lcars-chrome-top" aria-hidden="true"></div>
-            <div class="lcars-chrome lcars-chrome-bottom" aria-hidden="true"></div>
-
-            <div class="lcars-headline" aria-hidden="true">SYSTEM 47</div>
-
-            <div class="lcars-telemetry" aria-hidden="true">
-                <div class="telemetry-row"><span class="telemetry-value">1072</span><span class="telemetry-bar blue"></span></div>
-                <div class="telemetry-row"><span class="telemetry-value">1985</span><span class="telemetry-bar orange"></span></div>
-                <div class="telemetry-row"><span class="telemetry-value">972</span><span class="telemetry-bar light"></span></div>
-                <div class="telemetry-row"><span class="telemetry-value">15.74</span><span class="telemetry-bar orange"></span></div>
-                <div class="telemetry-row"><span class="telemetry-value">14.83</span><span class="telemetry-bar blue"></span></div>
+            <div class="timer-container">
+                <div id="time-bar"></div>
             </div>
-
-            <div class="lcars-content">
-                <div class="lcars-top-accent" aria-hidden="true">
-                    <span class="accent-block gold"></span>
-                    <span class="accent-block sand"></span>
-                    <span class="accent-block lilac"></span>
-                </div>
-                <div class="lcars-header-text">OPS // SENSOR CALIBRATION // DELTA 4912</div>
-                <div class="timer-container">
-                    <div id="time-bar"></div>
-                </div>
-                <div id="quest-area">
-                    <h2 id="quest-title">LCARS Kalibrierungsprotokoll</h2>
-                    <div id="math-problem"></div>
-                    <input type="number" id="math-answer" placeholder="Eingabe hier..." autocomplete="off">
-                    <p id="quest-status">5 Kalibrierungen abschließen</p>
-                </div>
-                <div class="lcars-footer-text">SECTOR 249 LOCKED // NCC-1701</div>
+            <div id="quest-area">
+                <h2 id="quest-title">Kalibrierungsprotokoll</h2>
+                <div id="math-problem"></div>
+                <input type="number" id="math-answer" placeholder="Eingabe hier..." autocomplete="off">
+                <p id="quest-status">5 Kalibrierungen abschließen</p>
             </div>
         </div>
 
