@@ -73,12 +73,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Minigame functions
     function startMinigame() {
+        infoBox.classList.add('hidden');
         minigameOverlay.classList.remove('hidden');
         resizeCanvas();
         questionsSolved = 0;
         timeRemaining = 60;
         timeBar.style.width = '100%';
-        timeBar.style.background = 'linear-gradient(90deg, #ff4e50, #f9d423)';
+        timeBar.style.background = '#f9a54d';
         mathAnswerInput.value = '';
         mathAnswerInput.disabled = false;
         questStatus.textContent = `Abgeschlossen: ${questionsSolved} / ${requiredQuestions}`;
@@ -109,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         timeBar.style.width = `${percentage}%`;
 
         if (timeRemaining <= 15) {
-            timeBar.style.background = '#ff4e50';
+            timeBar.style.background = '#cc99cc';
         }
 
         if (timeRemaining <= 0) {
