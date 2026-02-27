@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Point and Click Adventure</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -25,14 +25,33 @@
 
         <!-- Minigame Overlay -->
         <div id="minigame-overlay" class="hidden">
-            <canvas id="wave-canvas"></canvas>
-            <div class="timer-container">
-                <div id="time-bar"></div>
+            <div class="lcars-shell" aria-hidden="true">
+                <div class="lcars-sidebar">
+                    <span class="lcars-segment lcars-gold"></span>
+                    <span class="lcars-segment lcars-lilac"></span>
+                    <span class="lcars-segment lcars-peach"></span>
+                    <span class="lcars-segment lcars-orange"></span>
+                </div>
+                <div class="lcars-top-rail"></div>
+                <div class="lcars-bottom-rail"></div>
             </div>
+
             <div id="quest-area">
-                <h2 id="quest-title">Kalibrierungsprotokoll</h2>
+                <div class="lcars-title-row">
+                    <h2 id="quest-title">LCARS CALIBRATION MATRIX</h2>
+                    <span class="lcars-tag">SYS 47-A</span>
+                </div>
+
+                <div id="wave-display">
+                    <canvas id="wave-canvas"></canvas>
+                </div>
+
+                <div class="timer-container">
+                    <div id="time-bar"></div>
+                </div>
+
                 <div id="math-problem"></div>
-                <input type="number" id="math-answer" placeholder="Eingabe hier..." autocomplete="off">
+                <input type="number" id="math-answer" placeholder="EINGABE" autocomplete="off">
                 <p id="quest-status">5 Kalibrierungen abschließen</p>
             </div>
         </div>
