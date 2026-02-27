@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Minigame elements
     const minigameOverlay = document.getElementById('minigame-overlay');
     const waveCanvas = document.getElementById('wave-canvas');
-    const waveDisplay = document.getElementById('wave-display');
     const waveCtx = waveCanvas.getContext('2d');
     const timeBar = document.getElementById('time-bar');
     const mathProblemText = document.getElementById('math-problem');
@@ -32,8 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let animationFrameId;
 
     function resizeCanvas() {
-        waveCanvas.width = waveDisplay.clientWidth;
-        waveCanvas.height = waveDisplay.clientHeight;
+        waveCanvas.width = minigameOverlay.clientWidth;
+        waveCanvas.height = minigameOverlay.clientHeight;
     }
 
     // Initial resize but hide initially
@@ -79,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         questionsSolved = 0;
         timeRemaining = 60;
         timeBar.style.width = '100%';
-        timeBar.style.background = 'linear-gradient(90deg, #f2ad73, #ef7e55)';
+        timeBar.style.background = 'linear-gradient(90deg, #ff4e50, #f9d423)';
         mathAnswerInput.value = '';
         mathAnswerInput.disabled = false;
         questStatus.textContent = `Abgeschlossen: ${questionsSolved} / ${requiredQuestions}`;
@@ -110,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         timeBar.style.width = `${percentage}%`;
 
         if (timeRemaining <= 15) {
-            timeBar.style.background = '#d46356';
+            timeBar.style.background = '#ff4e50';
         }
 
         if (timeRemaining <= 0) {
@@ -133,8 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const syncLevel = questionsSolved / requiredQuestions;
 
         const isCompleted = syncLevel >= 1;
-        const targetColor = isCompleted ? '#86efac' : 'rgba(182, 161, 223, 0.8)';
-        const currentColor = isCompleted ? '#86efac' : 'rgba(242, 173, 115, 0.8)';
+        const targetColor = isCompleted ? '#4ade80' : 'rgba(74, 144, 226, 0.7)'; // Cyan/Blueish target
+        const currentColor = isCompleted ? '#4ade80' : 'rgba(255, 78, 80, 0.7)'; // Reddish current state
 
         // As sync level increases, the phase offset between the two waves shrinks to 0.
         // E.g. 0 solved -> pi offset. 5 solved -> 0 offset.
